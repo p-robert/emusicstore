@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class ProductDaoImpl extends AbstractDaoImpl<Product,String> implements ProductDao {
+public class ProductDaoImpl extends AbstractDaoImpl<Product,Integer> implements ProductDao {
 
     @Override
     public void addProduct(Product product) {
@@ -21,7 +21,7 @@ public class ProductDaoImpl extends AbstractDaoImpl<Product,String> implements P
     }
 
     @Override
-    public Product getProductById(String id) {
+    public Product getProductById(Integer id) {
         return getById(id);
     }
 
@@ -32,7 +32,7 @@ public class ProductDaoImpl extends AbstractDaoImpl<Product,String> implements P
     }
 
     @Override
-    public void deleteProduct(String id) {
+    public void deleteProduct(Integer id) {
         deleteById(id);
     }
 

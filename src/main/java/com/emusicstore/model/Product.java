@@ -1,9 +1,8 @@
 package com.emusicstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
 
 /**
  * Created by user on 3/7/2017.
@@ -14,7 +13,7 @@ import javax.persistence.Id;
 public class Product {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private String productId;
+    private Integer productId;
 
 
 
@@ -24,8 +23,19 @@ public class Product {
     private double productPrice;
     private String productCondition;
     private String productStatus;
-    private String productManifacturer;
+    private String productManufacturer;
+    private Integer unitInStock;
 
+    @Transient
+    private MultipartFile productImage;
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
 
     public String getProductName() {
         return productName;
@@ -75,23 +85,31 @@ public class Product {
         this.productStatus = productStatus;
     }
 
-    public String getProductManifacturer() {
-        return productManifacturer;
+    public String getProductManufacturer() {
+        return productManufacturer;
     }
 
-    public void setProductManifacturer(String productManifacturer) {
-        this.productManifacturer = productManifacturer;
+    public void setProductManufacturer(String productManifacturer) {
+        this.productManufacturer = productManifacturer;
     }
 
-    public String getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
+    }
+
+    public Integer getUnitInStock() {
+        return unitInStock;
+    }
+
+    public void setUnitInStock(Integer unitInStock) {
+        this.unitInStock = unitInStock;
     }
 }
